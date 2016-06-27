@@ -32,7 +32,6 @@ public class Dispatcher {
        // APIMapper apiMapper =sqlSessionFactory.openSession().getMapper(APIMapper.class);
         System.out.println(apiService.findById(1).getOriginalapi());
         System.out.println((apiMapper.findAll().get(0).getIdapi()));
-
         return new ModelAndView("index");
     }
 
