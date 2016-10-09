@@ -6,8 +6,8 @@
         <typeAlias alias="API" type="com.smartcity.models.API"/>
         <typeAlias alias="Server" type="com.smartcity.models.Server"/>
         <typeAlias alias="Application" type="com.smartcity.models.Application"/>
-        <typeAlias alias="Developer" type="com.smartcity.models.Developer"/>
-        <typeAlias alias="Interface" type="com.smartcity.models.Interface"/>
+        <typeAlias alias="DeveloperKey" type="com.smartcity.models.Developer"/>
+        <typeAlias alias="InterfaceKey" type="com.smartcity.models.InterfaceKey"/>
         <typeAlias alias="User" type="com.smartcity.models.User"/>
     </typeAliases>
  <!--   <mappers>

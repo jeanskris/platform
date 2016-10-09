@@ -93,7 +93,7 @@
                      selectByExampleQueryId="false">
               </table>
 
-            <!--  <table tableName="interface" domainObjectName="Interface"
+              <!--<table tableName="interface" domainObjectName="Interface"
                      enableCountByExample="false"
                      enableUpdateByExample="false"
                      enableDeleteByExample="false"
