@@ -1,5 +1,6 @@
 package com.smartcity.services.intf;
 
+import com.smartcity.models.ResponseJsonObject.UserResponse;
 import com.smartcity.models.User;
 
 /**
@@ -11,4 +12,7 @@ public interface IUserService {
     void delete(int id);
     int login(String findByPhoneNum, String password);
     int findPrivateIDByUUID(String UUID);
+    String getUUIDByPhoneNum(String PhoneNum);
+    UserResponse getUserResponseByPhoneNum(String PhoneNum);
+    User findByPhoneNum(String PhoneNum);
 }

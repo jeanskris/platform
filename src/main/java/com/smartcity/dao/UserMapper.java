@@ -4,8 +4,6 @@ import com.smartcity.models.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface UserMapper {
     /**
@@ -87,7 +85,7 @@ public interface UserMapper {
         "where PrivateID = #{privateid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(User record);
-    List<User> findByPhoneNum(String phoneNum);
+    User findByPhoneNum(String phoneNum);
     int findByUUID(String UUID);//返回primarykey privateID
 
 }

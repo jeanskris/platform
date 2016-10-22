@@ -70,13 +70,7 @@
                      enableSelectByExample="false"
                      selectByExampleQueryId="false">
               </table>
-              <table tableName="application" domainObjectName="Application"
-                     enableCountByExample="false"
-                     enableUpdateByExample="false"
-                     enableDeleteByExample="false"
-                     enableSelectByExample="false"
-                     selectByExampleQueryId="false">
-              </table>
+
 
               <table tableName="developer" domainObjectName="Developer"
                      enableCountByExample="false"
@@ -85,20 +79,26 @@
                      enableSelectByExample="false"
                      selectByExampleQueryId="false">
               </table>-->
-              <table tableName="user" domainObjectName="User"
-                     enableCountByExample="false"
-                     enableUpdateByExample="false"
-                     enableDeleteByExample="false"
-                     enableSelectByExample="false"
-                     selectByExampleQueryId="false">
-              </table>
-
-            <!--  <table tableName="interface" domainObjectName="Interface"
+              <!--<table tableName="user" domainObjectName="User"
                      enableCountByExample="false"
                      enableUpdateByExample="false"
                      enableDeleteByExample="false"
                      enableSelectByExample="false"
                      selectByExampleQueryId="false">
               </table>-->
+              <!--<table tableName="application" domainObjectName="Application"
+                     enableCountByExample="false"
+                     enableUpdateByExample="false"
+                     enableDeleteByExample="false"
+                     enableSelectByExample="false"
+                     selectByExampleQueryId="false">
+              </table>-->
+              <table tableName="interface" domainObjectName="Interface"
+                     enableCountByExample="false"
+                     enableUpdateByExample="false"
+                     enableDeleteByExample="false"
+                     enableSelectByExample="false"
+                     selectByExampleQueryId="false">
+              </table>
        </context>
 </generatorConfiguration>

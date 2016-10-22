@@ -1,4 +1,6 @@
 import com.smartcity.models.selfDefined.HttpRequest;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,8 +16,30 @@ public class testHttpGet {
     public void getAPI(){
         try {
             HttpRequest hr=new HttpRequest();
-            String result=(String)hr.sendPost("http://localhost:8083/stop","");
+            Object result=hr.sendPost("http://localhost:8083/stop","");
             System.out.println(result);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void getAllAPPList(){
+        try {
+            HttpRequest hr=new HttpRequest();
+            String result=(String)hr.sendGet("http://localhost:8081/getAllAPPList","");
+            JSONArray jsonArray = new JSONArray(result);
+            System.out.println(result);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void getAPPLogo(){
+        try {
+            HttpRequest hr=new HttpRequest();
+            String result=(String)hr.sendGet("http://localhost:8081/getAPPLogo","{'logoName':'11233.png'}");
+            JSONObject json  = new JSONObject(result);
+            System.out.println(json);
         } catch(Exception e) {
             e.printStackTrace();
         }

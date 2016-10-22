@@ -9,15 +9,15 @@ import java.io.Serializable;
  */
 @ResponseBody
 public class ResponseMessage implements Serializable{
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
-    private String message;
+    private Object message;
 
     public int getResult() {
         return result;
@@ -30,6 +30,6 @@ public class ResponseMessage implements Serializable{
     private int result;
     @Override
     public String toString(){
-        return "message:"+this.getMessage()+"success:"+this.getResult();
+        return "message:"+this.getMessage()+"  result:"+this.getResult();
     }
 }

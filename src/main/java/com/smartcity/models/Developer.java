@@ -88,4 +88,8 @@ public class Developer {
     public void setUserUuid(String userUuid) {
         this.userUuid = userUuid;
     }
+    @Override
+    public String toString(){
+        return "developerID:"+this.getDeveloperid()+"  UUID:"+this.getUserUuid();
+    }
 }

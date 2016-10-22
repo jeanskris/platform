@@ -54,7 +54,7 @@ public class databaseTest {
     @Test
     public void deletUser(){
         try {
-            userService.delete(2);
+            userService.delete(25);
         } catch(Exception e) {
             e.printStackTrace();
         }

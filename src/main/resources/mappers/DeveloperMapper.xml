@@ -34,4 +34,11 @@
       </if>
     </trim>
   </insert>
+
+  <select id="findDevByUUID" parameterType="String" resultType="com.smartcity.models.Developer">
+    select * from developer where User_UUID=#{UUID,jdbcType=VARCHAR}
+  </select>
+  <select id="findDevIDByUUID" parameterType="String" resultType="String">
+    select DeveloperID from developer where User_UUID=#{UUID,jdbcType=VARCHAR}
+  </select>
 </mapper>

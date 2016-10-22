@@ -2,13 +2,12 @@ package com.smartcity.services.impl;
 
 import com.smartcity.dao.UserMapper;
 import com.smartcity.models.Constant;
+import com.smartcity.models.ResponseJsonObject.UserResponse;
 import com.smartcity.models.User;
 import com.smartcity.services.intf.IUserService;
 import com.smartcity.ultis.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Created by ZJDX on 2016/9/30.
@@ -23,9 +22,9 @@ public class UserServiceImpl implements IUserService{
     }
     public int save(User obj){
         User newUser=obj;
-        List<User> users = userMapper.findByPhoneNum(newUser.getPhonenum());
-        if (users.size() != 0) {
-            return Constant.ALREADY_EXISTS;//返回0
+        User user =userMapper.findByPhoneNum(newUser.getPhonenum());
+        if (user != null) {
+            return Constant.ALREADY_EXISTS;//返回2
         }
         newUser.setUuid(UUIDGenerator.getUUID());
         //newUser.setPassword(MD5Ultis.getMD5(newUser.getPassword()));//进行MD5加密，不过本来应该客户端加密后再传输。
@@ -34,15 +33,42 @@ public class UserServiceImpl implements IUserService{
     public void delete(int id){
         userMapper.deleteByPrimaryKey(id);
     }
-    public int login(String findByPhoneNum, String password) {
-        List<User> users = userMapper.findByPhoneNum(findByPhoneNum);
-        if (users.size() == 0) {
+    public int login(String PhoneNum, String password) {
+        User user =userMapper.findByPhoneNum(PhoneNum);
+        if (user == null) {
             return Constant.NO_SUCH_USER;
         }
-        if (users.get(0).getPassword().equals(password)) {
+        if (user.getPassword().equals(password)) {
             return Constant.SUCCESS;
         }
         return Constant.MISMATCH;
+    }
+    public UserResponse getUserResponseByPhoneNum(String PhoneNum){
+        User user =userMapper.findByPhoneNum(PhoneNum);
+        if (user == null) {
+            return null;
+        }
+        UserResponse userResponse=new UserResponse();
+        userResponse.setPhonenum(user.getPhonenum());
+        userResponse.setUsername(user.getUsername());
+        userResponse.setIdcardnumber(user.getIdcardnumber());
+        userResponse.setSex(user.getSex());
+        userResponse.setUuid(user.getUuid());
+        return userResponse;
+    }
+    public String getUUIDByPhoneNum(String PhoneNum){
+        User user =userMapper.findByPhoneNum(PhoneNum);
+        if (user == null) {
+            return "null";
+        }
+        return user.getUuid();
+    }
+    public User findByPhoneNum(String PhoneNum){
+        User user =userMapper.findByPhoneNum(PhoneNum);
+        if (user == null) {
+            return null;
+        }
+        return user;
     }
     public int findPrivateIDByUUID(String UUID){
         int privateID=userMapper.findByUUID(UUID);

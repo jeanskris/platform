@@ -6,11 +6,13 @@ package com.smartcity.models;
 public class Constant {
 
     private Constant(){}
-
-    public static int SUCCESS = 0;
-    public static int FAIL = 1;
+    public static String FTP_IP= "114.215.144.107";
+    public static String FTP_PATH = "/www/image/";
+    public static int SUCCESS = 1;
+    public static int FAIL = 0;
     public static int ALREADY_EXISTS = 2;
     public static int NO_SUCH_USER = 4;
+    public static int NO_SUCH_APP = 4;
     public static int UNKNOWN_REASON = 2;
     public static int MISMATCH = 3;
     public static int UNKNOWN_CATEGORY = 1;
@@ -20,7 +22,7 @@ public class Constant {
     public static int NO_PRODUCT = 1;
     public static int AUTHENTICATE_FAILURE = 1;
 
-
+    public static String MSG_FAIL = "Fail";
     public static String MSG_SUCCESS = "Success";
     public static String MSG_UNKNOWN_REASON = "Unknown Reason";
     public static String MSG_NO_SUCH_USER = "No Such User";
