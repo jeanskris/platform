@@ -31,21 +31,21 @@ public class ServerRpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcRequest rpcRequest) throws Exception {
-        RpcResponse response = new RpcResponse();
-        response.setTraceId(rpcRequest.getTraceId());
-        try {
-            logger.info("server handle request:{}",rpcRequest);
-            System.out.println("server handle request:{}"+rpcRequest);
-            Object result = handle(rpcRequest);
-            response.setResult(result);
-        } catch (Throwable t) {
-            logger.error(t.getMessage(),t);
-            System.out.println("ServerRpcHandler-channelRead0:"+t.getMessage());
-            response.setError(t);
-        }
-
-        channelHandlerContext.writeAndFlush(response);
-        System.out.println("server writeAndFlush:"+response.toString());
+//        RpcResponse response = new RpcResponse();
+//        response.setTraceId(rpcRequest.getTraceId());
+//        try {
+//            logger.info("server handle request:{}",rpcRequest);
+//            System.out.println("server handle request:{}"+rpcRequest);
+//            Object result = handle(rpcRequest);
+//            response.setResult(result);
+//        } catch (Throwable t) {
+//            logger.error(t.getMessage(),t);
+//            System.out.println("ServerRpcHandler-channelRead0:"+t.getMessage());
+//            response.setError(t);
+//        }
+        this.asyncHandler(channelHandlerContext,rpcRequest);
+       // channelHandlerContext.writeAndFlush(response);
+//        System.out.println("server writeAndFlush:"+response.toString());
 
     }
 
@@ -54,12 +54,24 @@ public class ServerRpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
             @Override
             public void run() {
                 RpcResponse response = new RpcResponse();
+                response.setTraceId(rpcRequest.getTraceId());
+                try {
+                    logger.info("server handle request:{}",rpcRequest);
+                    System.out.println("server handle request:{}"+rpcRequest);
+                    Object result = handle(rpcRequest);
+                    response.setResult(result);
+                } catch (Throwable t) {
+                    logger.error(t.getMessage(),t);
+                    System.out.println("ServerRpcHandler-channelRead0:"+t.getMessage());
+                    response.setError(t);
+                }
                 try {
                     handle(rpcRequest);
                 } catch (Throwable e) {
 
                 }
                 ctx.writeAndFlush(response);
+                System.out.println("server writeAndFlush:"+response.toString());
             }
         });
     }

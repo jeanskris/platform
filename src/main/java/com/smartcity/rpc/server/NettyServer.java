@@ -109,6 +109,7 @@ public class NettyServer implements ApplicationContextAware {
 
     /**
      * 利用此方法获取spring ioc接管的所有bean
+     * 目的是：通过容器加载RPC接口定义和RPC接口实现类对象的映射关系，然后等待客户端发起调用请求。
      * @param ctx
      * @throws BeansException
      */
