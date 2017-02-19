@@ -6,7 +6,7 @@ package com.smartcity.models;
 public class Constant {
 
     private Constant(){}
-    public static String FTP_IP= "114.215.144.107";
+    public static String FTP_IP= "114.215.81.181";
     public static String FTP_PATH = "/www/image/";
     public static int SUCCESS = 1;
     public static int FAIL = 0;

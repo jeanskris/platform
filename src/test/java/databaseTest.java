@@ -46,7 +46,7 @@ public class databaseTest {
             System.out.println(newUser.getPassword());
             int result=userService.save(newUser);
             System.out.println(result);
-            System.out.println(userService.findById(1).toString());
+//            System.out.println(userService.findById(1).toString());
         } catch(Exception e) {
             e.printStackTrace();
         }
