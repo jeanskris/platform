@@ -106,6 +106,7 @@ public class Action {
         ResponseMessage responseMessage=new ResponseMessage();
         if(user==null) {
             responseMessage= registerNewUser(phonenum, password);
+            logger.debug("registerDeveloper+registerNewUser");
         }
         if(user!=null||responseMessage.getResult()==Constant.SUCCESS){
             Developer developer=new Developer();
@@ -123,6 +124,7 @@ public class Action {
                 responseMessage.setMessage("acount already exist");
             }
         }
+        logger.debug("registerDeveloper");
         System.out.println("registerDeveloper responseMessage:"+responseMessage);
         return responseMessage;
 
